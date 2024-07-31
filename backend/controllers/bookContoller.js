@@ -5,7 +5,6 @@ const admin = require('../config/firebaseConfig');
 const getAllBooks = async (req, res) => {
   try {
     const booksSnapshot = await admin.collection('books').get();
-    console.log('SNAPSHOT', booksSnapshot)
     const bookArray = [];
     if (booksSnapshot.empty) {
       res.status(400).send('No books found');
@@ -49,7 +48,7 @@ const getBook = async (req, res) => {
     const bookDoc = admin.collection('books').doc(id);
     const data = await bookDoc.get();
     if (data) {
-      res.status(200).json(data.data());  
+       res.status(200).json(data.data());  
     } else {
       res.status(404).json({ message: 'Book not found' });  
     }
@@ -65,7 +64,6 @@ const updateBook = async (req, res) => {
     const data = req.body;
     const bookDoc = admin.collection('books').doc(id);
     await bookDoc.update(data);
-
     res.status(200).json({ message: 'Book updated successfully' });
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -74,15 +72,23 @@ const updateBook = async (req, res) => {
 
 // Delete a book
 const deleteBook = async (req, res) => {
-    try {
-        const id = req.params.id
-    if (!id) return res.status(204).json({ message: `Book ID ${req.params.id} not found` });
-    await admin.collection('books').doc(id).delete();
-    res.status(200).json('Book deleted successfully');
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ message: 'Error retrieving book' });
-    }
-}
+  try {
+      const id = req.params.id;
+      if (!id) {
+          return res.status(400).json({ message: 'Book ID is required' });
+      }
+      const bookRef = admin.collection('books').doc(id);
+      const doc = await bookRef.get();
+      if (!doc.exists) {
+          return res.status(404).json({ message: `Book with ID ${id} not found` });
+      }
+      await bookRef.delete();
+      res.status(200).json({ message: 'Book deleted successfully' });
+  } catch (err) {
+      console.error('Error deleting book:', err); 
+      res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 
 module.exports = { getAllBooks, createBook, updateBook, getBook, deleteBook };

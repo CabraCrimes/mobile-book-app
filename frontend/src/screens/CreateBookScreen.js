@@ -36,7 +36,7 @@ const AddBookScreen = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.bookDetailSafeArea}>
+    <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={dismissKeyboard}>
         <ScrollView contentContainerStyle={styles.bookDetailContainer}>
           <View style={styles.bookDetailContainer}>

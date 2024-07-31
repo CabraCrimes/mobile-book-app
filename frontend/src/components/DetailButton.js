@@ -4,11 +4,11 @@ import styles from '../styles/styles';
 
 
 
-const CustomButton = ({ onPress, title, color }) => {
+const DetailButton = ({ onPress, title, color }) => {
   return (
-    <SafeAreaView style={styles.containerButtonComponent}>
+    <SafeAreaView style={styles.buttonPropStyles}>
       <TouchableOpacity
-        style={[styles.buttonButtonComponent, { backgroundColor: color }]}
+        style={[styles.buttonPropButtonComponent, { backgroundColor: color }]}
         onPress={onPress}
       >
         <Text style={styles.buttonTextButtonComponent}>{title}</Text>
@@ -17,4 +17,4 @@ const CustomButton = ({ onPress, title, color }) => {
   );
 };
 
-export default CustomButton;
+export default DetailButton;

@@ -7,7 +7,6 @@ const API_URL_ID = 'http://192.168.1.131:3000';
 export const getAllBooks = async () => {
   try {
     const response = await fetch(`${API_URL}`);
-    console.log(response.json())
     if (!response.ok) {
       throw new Error('Network response was not ok GET');
     }
@@ -75,14 +74,14 @@ export const updateBook = async (id, updatedData) => {
 
 export const deleteBook = async id => {
   try {
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`${API_URL_ID}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    if (response.ok) {
-      throw new Error('Network response was not ok');
+    if (!response.ok) {
+      throw new Error(`Network response was not ok. Status: ${response.status}`);
     }
     const data = await response.json();
     console.log('Book data updated: ', data);

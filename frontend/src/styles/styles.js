@@ -4,11 +4,11 @@ const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    padding: 10
+    flex: 1,
+    padding: 8
   },
   header: {
-    fontSize: 24, 
+    fontSize: 28, 
     fontWeight: 'bold'
   },
   item: {
@@ -16,9 +16,20 @@ const styles = StyleSheet.create({
     margin: 5,
     minWidth: '48%', 
     maxWidth: '48%',
+    backgroundColor: '#fff', 
+    borderRadius: 10, 
+    shadowColor: '#000', 
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25, 
+    shadowRadius: 3.84, 
+    elevation: 5, 
+    borderWidth: 0.8,
+
   },
   titleButton: {
-    borderWidth: 2,
     borderColor: '#000',
     borderRadius: 5,
     padding: 10,
@@ -29,10 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     width: '100%',
     textAlign: 'center',
-  },
-  row: {
-    flex: 1,
-    justifyContent: 'space-between',
+    fontWeight: 'bold'
   },
   buttonAdd: {
     backgroundColor: '#4CAF50', 
@@ -45,23 +53,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  homePadding:{
+    borderTopColor: '#bbb', // Line color
+    borderTopWidth: 1,
+    paddingBottom: 7 // Line thickness
+  },
   loadingContainer: {
-    flex: 1,
     justifyContent: 'center', 
     alignItems: 'center'
   },
 
   //Book page styles
-  bookDetailSafeArea: {
-    flex: 1,  
-    backgroundColor: '#fff', 
-  },
   bookDetailContainer: {
     flex: 1,
+    justifyContent: 'space-between',
+  },
+  scrollView: {
+    height:'100%',
     padding: 10,
-    justifyContent: 'space-between', 
   },
   bookDetailTitle: {
+    padding: 5,
     fontSize: 32,
     fontWeight: 'bold',
   },
@@ -69,13 +81,32 @@ const styles = StyleSheet.create({
     fontSize: 23,
     padding: 6,
   },
+  bookDetailStyleDelete: {
+    fontSize: 23,
+    padding: 6,
+    fontWeight: 'bold'
+  },
+  summaryContainer: {
+    maxHeight: height / 2,
+    marginVertical: 10,
+  },
   bookDetailSummary: {
+    padding: 4,
     fontSize: 21,
-    height: height / 2
+    height: height / 2,
+    // minHeight: '20%' 
+  },
+  bookDetailSummaryScreen: {
+    padding: 4,
+    fontSize: 21,
+    // height: height / 2,
+    // minHeight: '20%' 
   },
   buttonContainer: {
-    flexDirection: 'row',  
-    justifyContent: 'space-between',  
+    flexDirection: 'row'
+  },
+  flat:{
+    height: height + (height / 2)
   },
   buttonWrapper: {
     flex: 1,
@@ -88,6 +119,17 @@ const styles = StyleSheet.create({
   },
 
   //ButtonComponent
+  buttonPropStyles:{
+    width: '50%',
+    padding: 5,
+  },
+  buttonPropButtonComponent: {
+    padding: 16,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
   containerButtonComponent: {
     width: '100%',
     padding: 16,
@@ -103,6 +145,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  fixedButtonContainer: {
+    position: 'absolute',
+    bottom: 10,
+    width: '100%',
+    alignItems: 'center',
   },
 });
 
