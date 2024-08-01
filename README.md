@@ -97,5 +97,5 @@ This repository contains the code for a Book Management App, which includes both
 
 Watch a demonstration of the app in action:
 
-[![Watch the video](https://img.youtube.com/vi/[your-video-id](https://youtu.be/skPYfxnMugI)/hqdefault.jpg)]([https://www.youtube.com/watch?v=your-video-id](https://youtu.be/skPYfxnMugI))
+[![Book Management App](https://img.youtube.com/vi/skPYfxnMugI/0.jpg)](https://youtu.be/skPYfxnMugI)
 
