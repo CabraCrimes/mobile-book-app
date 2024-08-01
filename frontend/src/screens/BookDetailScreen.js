@@ -3,7 +3,7 @@ import {SafeAreaView, View, Text, ScrollView} from 'react-native';
 import styles from '../styles/styles';
 import {getBook} from '../services/api';
 import {useFocusEffect} from '@react-navigation/native';
-import DetailButton from '../components/detailButton';
+import CustomButtonDetails from '../components/ButtonDetials';
 
 const BookDetailsScreen = ({route, navigation}) => {
   const {book} = route.params;
@@ -52,7 +52,7 @@ const BookDetailsScreen = ({route, navigation}) => {
             </ScrollView>
           </View>
           <View style={styles.buttonContainer}>
-            <DetailButton
+            <CustomButtonDetails
               buttonCustomStyles={styles.buttonPropStyles}
               color={'#0c69c7'}
               title="Edit Book"
@@ -60,7 +60,7 @@ const BookDetailsScreen = ({route, navigation}) => {
                 navigation.navigate('Edit Book', {bookDetails, bookID})
               }
             />
-            <DetailButton
+            <CustomButtonDetails
               color={'#ef1b1b'}
               title="Delete Book"
               onPress={() =>

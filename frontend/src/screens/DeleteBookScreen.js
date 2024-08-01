@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {SafeAreaView, View, Text, Alert} from 'react-native';
 import styles from '../styles/styles';
 import {deleteBook} from '../services/api';
-import DetailButton from '../components/detailButton';
+import CustomButtonDetails from '../components/ButtonDetials';
 
 const DeleteBookScreen = ({route, navigation}) => {
   const {bookDetails, bookID} = route.params;
@@ -40,12 +40,12 @@ const DeleteBookScreen = ({route, navigation}) => {
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
           <View style={styles.buttonContainer}>
-            <DetailButton
+            <CustomButtonDetails
               color={'#ef1b1b'}
               title="Delete"
               onPress={handleDeleteBook}
             />
-            <DetailButton
+            <CustomButtonDetails
               color={'#0c69c7'}
               title="Cancel"
               onPress={() => navigation.goBack()}

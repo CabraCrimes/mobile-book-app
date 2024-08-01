@@ -2,9 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/styles';
 
-
-
-const DetailButton = ({ onPress, title, color }) => {
+const CustomButtonDetails = ({ onPress, title, color }) => {
   return (
     <SafeAreaView style={styles.buttonPropStyles}>
       <TouchableOpacity
@@ -17,4 +15,4 @@ const DetailButton = ({ onPress, title, color }) => {
   );
 };
 
-export default DetailButton;
+export default CustomButtonDetails;
